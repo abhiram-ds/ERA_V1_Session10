@@ -10,26 +10,34 @@ This Package trains a Deep Neural Network on CIFAR data. It's been packaged prop
 
 /data_loaders/cifar10_data_loader.py 
 -------------------------------------
+
 get_train_loader(batch_size, transform) : Loads the Training data and returns train loader 
+
 get_test_loader(batch_size, transform)  : Loads the Test data and returns test loader 
+
 get_classes()                           :  Returns the class labels 
+
 
 data_transformations/data_transform_cifar10_custom_resnet.py
 -------------------------------------------------------------
 
 class album_Compose_train: 
+
     Defines all Transformation parameters
     Transforms and returns the modified image 
     
 class album_Compose_test:
+
     Defines all Transformation parameters
     Transforms and returns the modified image 
     			
 get_train_transform():
     Return Transformed Image
+    
 get_test_transform():
     Return Transformed Image
     
+
 models/resnet18.py
 ------------------
 
