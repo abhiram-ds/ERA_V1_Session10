@@ -38,27 +38,43 @@ get_test_transform():
     Return Transformed Image
     
 
-models/resnet18.py
+models/customresnet.py
 ------------------
 
-The Custom Resnet18 Script is defined here 
+The Custom Resnet Script is defined here 
 
 PrepLayer - Conv 3x3 s1, p1) >> BN >> RELU [64k]
+
 Layer1 -
+
 X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [128k]
+
 R1 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [128k] 
+
 Add(X, R1)
+
 Layer 2 -
+
 Conv 3x3 [256k]
+
 MaxPooling2D
+
 BN
+
 ReLU
+
 Layer 3 -
+
 X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [512k]
+
 R2 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [512k]
+
 Add(X, R2)
+
 MaxPooling with Kernel Size 4
+
 FC Layer 
+
 SoftMax
 
 models/main.py
@@ -79,11 +95,17 @@ utils/
 -----
 
 accuracy_utils.py                : Utility to calculate accuracy of training and testing 
+
 cyclic_lr_plot.png               : Utility to plot clclic LR Plot
+
 cyclic_lr_util.py
+
 gradcamkz_util.py                : Gradcam Utility
+
 misclassified_image_utils.py     : Utility to find misclassified images 
+
 plot_metrics_utils.py            : Plot the Metrics
+
 train_test_utils.py              : Train Test Utility
     
      
@@ -91,20 +113,29 @@ Constraints
 -------------
 
 Total Epochs = 24
+
 Max at Epoch = 5
+
 LRMIN = FIND
+
 LRMAX = FIND
+
 NO Annihilation
+
 RandomCrop 32, 32 (after padding of 4) >> FlipLR >> Followed by CutOut(8, 8)
+
 Batch size = 512
+
 Target Accuracy: 90%
 
 Result 
 ------
 Achieved 91% Accuracy on 18th Epoch and constantly till 24th Epoch
 
+
 Assumptions
 -------------
+
 With few more generalization we can achieve 93% accuracy and that's something i will try out 
 
 
