@@ -1,8 +1,5 @@
 ERA - Assignment 10
 ======================
-Developer
-=================
-• Nihar Kanungo (nihar.kanungo@gmail.com)
 
 Explanation
 ============
